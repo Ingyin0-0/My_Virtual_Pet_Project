@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let bgMusic;
 
-    if (window.location.pathname.includes("home.html")) {
+    if (window.location.pathname.includes("index.html")) {
 
         bgMusic = new Audio("assets/music.mp3");
 
