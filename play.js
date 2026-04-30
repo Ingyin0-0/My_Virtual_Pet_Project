@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             function () {
 
-                window.location.href = "home.html";
+                window.location.href = "index.html";
 
             }
 
