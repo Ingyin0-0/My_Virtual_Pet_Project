@@ -1,647 +1,647 @@
-// document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-//     let bgMusic;
+    let bgMusic;
 
-//     if (window.location.pathname.includes("index.html")) {
+    if (window.location.pathname.includes("index.html")) {
 
-//         bgMusic = new Audio("assets/music.mp3");
+        bgMusic = new Audio("assets/music.mp3");
 
-//     } else if (window.location.pathname.includes("story.html")) {
+    } else if (window.location.pathname.includes("story.html")) {
 
-//         bgMusic = new Audio("assets/rainy.mp3");
+        bgMusic = new Audio("assets/rainy.mp3");
 
-//     } else if (window.location.pathname.includes("play.html")) {
+    } else if (window.location.pathname.includes("play.html")) {
 
-//         bgMusic = new Audio("assets/home.mp3");
+        bgMusic = new Audio("assets/home.mp3");
 
-//     }
+    }
 
-//     if (!bgMusic) return;
+    if (!bgMusic) return;
 
-//     bgMusic.volume = 0.15;
+    bgMusic.volume = 0.15;
 
-//     bgMusic.loop = true;
+    bgMusic.loop = true;
 
-//     bgMusic.preload = "auto";
+    bgMusic.preload = "auto";
 
-//     let musicOn = false;
+    let musicOn = false;
 
-//     function startMusicOnce() {
+    function startMusicOnce() {
 
-//         if (!musicOn) {
+        if (!musicOn) {
 
-//             bgMusic.play().catch(() => { });
+            bgMusic.play().catch(() => { });
 
-//             musicOn = true;
+            musicOn = true;
 
-//             const musicToggle = document.getElementById("musicToggle");
+            const musicToggle = document.getElementById("musicToggle");
 
-//             if (musicToggle) {
+            if (musicToggle) {
 
-//                 musicToggle.innerHTML = `<i class="fa-solid fa-music"></i> Music: ON`;
+                musicToggle.innerHTML = `<i class="fa-solid fa-music"></i> Music: ON`;
 
-//             }
+            }
 
-//         } document.removeEventListener("click", startMusicOnce);
+        } document.removeEventListener("click", startMusicOnce);
 
-//     }
+    }
 
-//     document.addEventListener("click", startMusicOnce);
+    document.addEventListener("click", startMusicOnce);
 
-//     // Music toggle
-//     const musicToggle = document.getElementById("musicToggle");
+    // Music toggle
+    const musicToggle = document.getElementById("musicToggle");
 
-//     if (musicToggle) {
+    if (musicToggle) {
 
-//         musicToggle.addEventListener("click", (e) => {
+        musicToggle.addEventListener("click", (e) => {
 
-//             e.stopPropagation();
+            e.stopPropagation();
 
-//             if (musicOn) {
+            if (musicOn) {
 
-//                 bgMusic.pause();
+                bgMusic.pause();
 
-//                 musicOn = false;
+                musicOn = false;
 
-//             } else {
+            } else {
 
-//                 bgMusic.play().catch(() => { });
+                bgMusic.play().catch(() => { });
 
-//                 musicOn = true;
+                musicOn = true;
 
-//             }
+            }
 
-//             musicToggle.innerHTML =
+            musicToggle.innerHTML =
 
-//                 `<i class="fa-solid fa-music"></i> Music: ${musicOn ? "ON" : "OFF"}`;
+                `<i class="fa-solid fa-music"></i> Music: ${musicOn ? "ON" : "OFF"}`;
 
-//         });
+        });
 
-//     }
+    }
 
-//     const meowSfx = new Audio("assets/meow.wav");
+    const meowSfx = new Audio("assets/meow.wav");
 
-//     meowSfx.volume = 0.2;
+    meowSfx.volume = 0.2;
 
-//     meowSfx.preload = "auto";
+    meowSfx.preload = "auto";
 
-//     let sfxOn = true;
+    let sfxOn = true;
 
-//     function playMeow() {
+    function playMeow() {
 
-//         if (sfxOn) {
+        if (sfxOn) {
 
-//             meowSfx.currentTime = 0;
+            meowSfx.currentTime = 0;
 
-//             meowSfx.play().catch(() => { });
+            meowSfx.play().catch(() => { });
 
-//         }
+        }
 
-//     }
+    }
 
-//     // Enable Continue if save exists
-//     saveBtn.addEventListener("click", function () {
+    // Enable Continue if save exists
+    saveBtn.addEventListener("click", function () {
 
-//         showConfirmModal("Do you want to save the progress?",
+        showConfirmModal("Do you want to save the progress?",
 
-//             function () {
+            function () {
 
-//                 closeModal();
+                closeModal();
 
-//                 setTimeout(() => {
+                setTimeout(() => {
 
-//                     const gameData = {
+                    const gameData = {
 
-//                         hunger: hunger,
+                        hunger: hunger,
 
-//                         happiness: happiness,
+                        happiness: happiness,
 
-//                         energy: energy
+                        energy: energy
 
-//                     };
+                    };
 
-//                     localStorage.setItem("noirGame", JSON.stringify(gameData));
+                    localStorage.setItem("noirGame", JSON.stringify(gameData));
 
-//                     showModal("Game saved successfully!");
+                    showModal("Game saved successfully!");
 
-//                 }, 250);
+                }, 250);
 
-//             });
+            });
 
-//     });
+    });
 
-//     // Exit Button
-//     exitBtn.addEventListener("click", function () {
+    // Exit Button
+    exitBtn.addEventListener("click", function () {
 
-//         showConfirmModal(
+        showConfirmModal(
 
-//             "Are you sure you want to exit?",
+            "Are you sure you want to exit?",
 
-//             function () {
+            function () {
 
-//                 window.location.href = "index.html";
+                window.location.href = "index.html";
 
-//             }
+            }
 
-//         );
+        );
 
-//     });
+    });
 
-//     // SFX toggle
-//     const sfxToggle = document.getElementById("sfxToggle");
+    // SFX toggle
+    const sfxToggle = document.getElementById("sfxToggle");
 
-//     if (sfxToggle) {
+    if (sfxToggle) {
 
-//         sfxToggle.addEventListener("click", () => {
+        sfxToggle.addEventListener("click", () => {
 
-//             sfxOn = !sfxOn;
+            sfxOn = !sfxOn;
 
-//             sfxToggle.innerHTML =
+            sfxToggle.innerHTML =
 
-//                 `<i class="fa-solid fa-volume-high"></i> SFX: ${sfxOn ? "ON" : "OFF"}`;
+                `<i class="fa-solid fa-volume-high"></i> SFX: ${sfxOn ? "ON" : "OFF"}`;
 
-//         });
+        });
 
-//     }
+    }
 
-//     // Meow for buttons 
-//     document.addEventListener("click", function (e) {
+    // Meow for buttons 
+    document.addEventListener("click", function (e) {
 
-//         if (e.target.closest("#feedBtn, #petBtn, #playBtn, #choiceBtn")) {
+        if (e.target.closest("#feedBtn, #petBtn, #playBtn, #choiceBtn")) {
 
-//             playMeow();
+            playMeow();
 
-//         }
+        }
 
-//     });
+    });
 
-//     const startBtn = document.getElementById("startBtn");
+    const startBtn = document.getElementById("startBtn");
 
-//     if (startBtn) {
+    if (startBtn) {
 
-//         startBtn.addEventListener("click", function () {
+        startBtn.addEventListener("click", function () {
 
-//             setTimeout(() => {
+            setTimeout(() => {
 
-//                 window.location.href = "story.html";
+                window.location.href = "story.html";
 
-//             }, 800);
+            }, 800);
 
-//         });
+        });
 
-//     }
+    }
 
-//     // Dropdown
-//     const settingBtn = document.getElementById("settingBtn");
+    // Dropdown
+    const settingBtn = document.getElementById("settingBtn");
 
-//     const dropdown = document.querySelector(".dropdown-content");
+    const dropdown = document.querySelector(".dropdown-content");
 
-//     if (settingBtn && dropdown) {
+    if (settingBtn && dropdown) {
 
-//         settingBtn.addEventListener("click", function (event) {
+        settingBtn.addEventListener("click", function (event) {
 
-//             event.stopPropagation();
+            event.stopPropagation();
 
-//             dropdown.classList.toggle("show");
+            dropdown.classList.toggle("show");
 
-//         });
+        });
 
-//         document.addEventListener("click", function () {
+        document.addEventListener("click", function () {
 
-//             dropdown.classList.remove("show");
+            dropdown.classList.remove("show");
 
-//         });
+        });
 
-//     }
+    }
 
-//     // Game - Area
-//     let hunger = 1;
+    // Game - Area
+    let hunger = 1;
 
-//     let happiness = 1;
+    let happiness = 1;
 
-//     let energy = 2;
+    let energy = 2;
 
-//     let hungerWarning = false;
+    let hungerWarning = false;
 
-//     let happinessWarning = false;
+    let happinessWarning = false;
 
-//     let energyWarning = false;
+    let energyWarning = false;
 
-//     // Saved Game
-//     const savedGame = localStorage.getItem("noirGame");
+    // Saved Game
+    const savedGame = localStorage.getItem("noirGame");
 
-//     if (savedGame) {
+    if (savedGame) {
 
-//         const gameData = JSON.parse(savedGame);
+        const gameData = JSON.parse(savedGame);
 
-//         hunger = gameData.hunger;
+        hunger = gameData.hunger;
 
-//         happiness = gameData.happiness;
+        happiness = gameData.happiness;
 
-//         energy = gameData.energy;
+        energy = gameData.energy;
 
-//     }
+    }
 
-//     const MAX_LEVEL = 5;
+    const MAX_LEVEL = 5;
 
-//     const MIN_LEVEL = 0;
+    const MIN_LEVEL = 0;
 
-//     const hungerBar = document.getElementById("hungerBar");
+    const hungerBar = document.getElementById("hungerBar");
 
-//     const happyBar = document.getElementById("happyBar");
+    const happyBar = document.getElementById("happyBar");
 
-//     const playBar = document.getElementById("playBar");
+    const playBar = document.getElementById("playBar");
 
-//     const feedBtn = document.getElementById("feedBtn");
+    const feedBtn = document.getElementById("feedBtn");
 
-//     const petBtn = document.getElementById("petBtn");
+    const petBtn = document.getElementById("petBtn");
 
-//     const playBtn = document.getElementById("playBtn");
+    const playBtn = document.getElementById("playBtn");
 
-//     function updateBars() {
+    function updateBars() {
 
-//         hungerBar.innerHTML = "";
+        hungerBar.innerHTML = "";
 
-//         happyBar.innerHTML = "";
+        happyBar.innerHTML = "";
 
-//         playBar.innerHTML = "";
+        playBar.innerHTML = "";
 
-//         for (let i = 0; i < MAX_LEVEL; i++) {
+        for (let i = 0; i < MAX_LEVEL; i++) {
 
-//             hungerBar.innerHTML +=
+            hungerBar.innerHTML +=
 
-//                 `<i class="fa-solid fa-fish" style="opacity:${i < hunger ? 1 : 0.2}"></i>`;
+                `<i class="fa-solid fa-fish" style="opacity:${i < hunger ? 1 : 0.2}"></i>`;
 
-//             happyBar.innerHTML +=
+            happyBar.innerHTML +=
 
-//                 `<i class="fa-solid fa-heart" style="opacity:${i < happiness ? 1 : 0.2}"></i>`;
+                `<i class="fa-solid fa-heart" style="opacity:${i < happiness ? 1 : 0.2}"></i>`;
 
-//             playBar.innerHTML +=
+            playBar.innerHTML +=
 
-//                 `<i class="fa-solid fa-bolt" style="opacity:${i < energy ? 1 : 0.2}"></i>`;
+                `<i class="fa-solid fa-bolt" style="opacity:${i < energy ? 1 : 0.2}"></i>`;
 
-//         }
+        }
 
-//     }
+    }
 
-//     updateBars();
+    updateBars();
 
-//     setInterval(function () {
+    setInterval(function () {
 
-//         // Hunger
-//         if (hunger > MIN_LEVEL) {
+        // Hunger
+        if (hunger > MIN_LEVEL) {
 
-//             hunger--;
+            hunger--;
 
-//             if (hunger === MIN_LEVEL && !hungerWarning) {
+            if (hunger === MIN_LEVEL && !hungerWarning) {
 
-//                 showModal("Noir is starving...");
+                showModal("Noir is starving...");
 
-//                 hungerWarning = true;
+                hungerWarning = true;
 
-//             }
+            }
 
-//         }
+        }
 
-//         // Happiness
-//         if (happiness > MIN_LEVEL) {
+        // Happiness
+        if (happiness > MIN_LEVEL) {
 
-//             happiness--;
+            happiness--;
 
-//             if (happiness === MIN_LEVEL && !happinessWarning) {
+            if (happiness === MIN_LEVEL && !happinessWarning) {
 
-//                 showModal("Noir looks sad...");
+                showModal("Noir looks sad...");
 
-//                 happinessWarning = true;
+                happinessWarning = true;
 
-//             }
+            }
 
-//         }
+        }
 
-//         // Energy
-//         if (energy < MAX_LEVEL) {
+        // Energy
+        if (energy < MAX_LEVEL) {
 
-//             energy++;
+            energy++;
 
-//             if (energy === MAX_LEVEL && !energyWarning) {
+            if (energy === MAX_LEVEL && !energyWarning) {
 
-//                 showModal("Noir is full of energy!");
+                showModal("Noir is full of energy!");
 
-//                 energyWarning = true;
+                energyWarning = true;
 
-//             }
+            }
 
-//         }
+        }
 
-//         updateBars();
+        updateBars();
 
-//     }, 60000);
+    }, 60000);
 
-//     feedBtn.addEventListener("click", function () {
+    feedBtn.addEventListener("click", function () {
 
-//         playMeow();
+        playMeow();
 
-//         if (hunger >= MAX_LEVEL) {
+        if (hunger >= MAX_LEVEL) {
 
-//             showModal("Noir is full.");
+            showModal("Noir is full.");
 
-//             sleepCat(5000);
+            sleepCat(5000);
 
-//             return;
+            return;
 
-//         }
+        }
 
-//         hunger++;
+        hunger++;
 
-//         hungerWarning = false;
+        hungerWarning = false;
 
-//         updateBars();
+        updateBars();
 
-//         playTempAnim(feedFrames, 3000);
+        playTempAnim(feedFrames, 3000);
 
-//     });
+    });
 
-//     petBtn.addEventListener("click", function () {
+    petBtn.addEventListener("click", function () {
 
-//         playMeow();
+        playMeow();
 
-//         if (happiness >= MAX_LEVEL) {
+        if (happiness >= MAX_LEVEL) {
 
-//             showModal("Noir is very happy");
+            showModal("Noir is very happy");
 
-//             playTempAnim(["assets/cat8.png"], 3000);
+            playTempAnim(["assets/cat8.png"], 3000);
 
-//             return;
+            return;
 
-//         }
+        }
 
-//         happiness++;
+        happiness++;
 
-//         happinessWarning = false;
+        happinessWarning = false;
 
-//         updateBars();
+        updateBars();
 
-//         playTempAnim(petFrames, 2000);
+        playTempAnim(petFrames, 2000);
 
-//     });
+    });
 
-//     playBtn.addEventListener("click", function () {
+    playBtn.addEventListener("click", function () {
 
-//         playMeow();
+        playMeow();
 
-//         if (energy <= MIN_LEVEL) {
+        if (energy <= MIN_LEVEL) {
 
-//             showModal("Noir is too tired to play.");
+            showModal("Noir is too tired to play.");
 
-//             sleepCat(5000);
+            sleepCat(5000);
 
-//             return;
+            return;
 
-//         }
+        }
 
-//         energy--;
+        energy--;
 
-//         energyWarning = false;
+        energyWarning = false;
 
-//         updateBars();
+        updateBars();
 
-//         playTempAnim(playFrames, 3000);
+        playTempAnim(playFrames, 3000);
 
-//     });
+    });
 
-//     // Modal Overlay 
-//     const modalOverlay = document.getElementById("modalOverlay");
+    // Modal Overlay 
+    const modalOverlay = document.getElementById("modalOverlay");
 
-//     const modalTitle = document.getElementById("modalTitle");
+    const modalTitle = document.getElementById("modalTitle");
 
-//     const modalText = document.getElementById("modalText");
+    const modalText = document.getElementById("modalText");
 
-//     const modalOk = document.getElementById("modalOk");
+    const modalOk = document.getElementById("modalOk");
 
-//     const modalCancel = document.getElementById("modalCancel");
+    const modalCancel = document.getElementById("modalCancel");
 
-//     const modalConfirm = document.getElementById("modalConfirm");
+    const modalConfirm = document.getElementById("modalConfirm");
 
-//     let confirmAction = null;
+    let confirmAction = null;
 
-//     function showModal(text) {
+    function showModal(text) {
 
-//         modalTitle.textContent = "";
+        modalTitle.textContent = "";
 
-//         modalText.textContent = text;
+        modalText.textContent = text;
 
-//         modalOk.classList.remove("hidden");
+        modalOk.classList.remove("hidden");
 
-//         modalCancel.classList.add("hidden");
+        modalCancel.classList.add("hidden");
 
-//         modalConfirm.classList.add("hidden");
+        modalConfirm.classList.add("hidden");
 
-//         modalOverlay.classList.add("show");
+        modalOverlay.classList.add("show");
 
-//         modalOverlay.classList.remove("hidden");
+        modalOverlay.classList.remove("hidden");
 
-//     }
+    }
 
-//     function showConfirmModal(text, onConfirm) {
+    function showConfirmModal(text, onConfirm) {
 
-//         confirmAction = onConfirm;
+        confirmAction = onConfirm;
 
-//         modalTitle.textContent = "";
+        modalTitle.textContent = "";
 
-//         modalText.textContent = text;
+        modalText.textContent = text;
 
-//         modalOk.classList.add("hidden");
+        modalOk.classList.add("hidden");
 
-//         modalCancel.classList.remove("hidden");
+        modalCancel.classList.remove("hidden");
 
-//         modalConfirm.classList.remove("hidden");
+        modalConfirm.classList.remove("hidden");
 
-//         modalOverlay.classList.add("show");
+        modalOverlay.classList.add("show");
 
-//         modalOverlay.classList.remove("hidden");
+        modalOverlay.classList.remove("hidden");
 
-//     }
+    }
 
-//     function closeModal() {
+    function closeModal() {
 
-//         modalOverlay.classList.remove("show");
+        modalOverlay.classList.remove("show");
 
-//         setTimeout(() => modalOverlay.classList.add("hidden"), 200);
+        setTimeout(() => modalOverlay.classList.add("hidden"), 200);
 
-//     }
+    }
 
-//     modalOk.addEventListener("click", closeModal);
+    modalOk.addEventListener("click", closeModal);
 
-//     modalCancel.addEventListener("click", closeModal);
+    modalCancel.addEventListener("click", closeModal);
 
-//     modalConfirm.addEventListener("click", () => {
+    modalConfirm.addEventListener("click", () => {
 
-//         if (confirmAction) confirmAction();
+        if (confirmAction) confirmAction();
 
-//     });
+    });
 
-//     modalOverlay.addEventListener("click", (e) => {
+    modalOverlay.addEventListener("click", (e) => {
 
-//         if (e.target === modalOverlay) closeModal();
+        if (e.target === modalOverlay) closeModal();
 
-//     });
+    });
 
-//     // About
-//     const aboutBtn = document.getElementById("aboutBtn");
+    // About
+    const aboutBtn = document.getElementById("aboutBtn");
 
-//     if (aboutBtn) {
+    if (aboutBtn) {
 
-//         aboutBtn.addEventListener("click", () => {
+        aboutBtn.addEventListener("click", () => {
 
-//             showModal(`About Noir 🐈‍⬛  
+            showModal(`About Noir 🐈‍⬛  
 
-//                 Noir is a cozy virtual pet game where you take care of a mysterious little cat.  
+                Noir is a cozy virtual pet game where you take care of a mysterious little cat.  
                 
-//                 Feed Noir when hungry, pet to keep happiness high, and play when energy allows.  
+                Feed Noir when hungry, pet to keep happiness high, and play when energy allows.  
 
-//                 As time passes, Noir’s needs slowly change, so check in often to keep your cat healthy and happy.  
+                As time passes, Noir’s needs slowly change, so check in often to keep your cat healthy and happy.  
 
-//                 The game features background music, sound effects, animations, and a save system so players can continue anytime.  
+                The game features background music, sound effects, animations, and a save system so players can continue anytime.  
 
-//                 This project was made as a creative interactive game to practice web development and design. Hope you guys enjoy!`);
+                This project was made as a creative interactive game to practice web development and design. Hope you guys enjoy!`);
 
-//         });
+        });
 
-//     }
+    }
 
-//     const cat = document.getElementById("cat");
+    const cat = document.getElementById("cat");
 
-//     // CSS Animation Frames
-//     const catFrames = document.getElementById("cat-fram");
+    // CSS Animation Frames
+    const catFrames = document.getElementById("cat-fram");
 
-//     const walkFrames = ["assets/1cat.png", "assets/3cat.png"];
+    const walkFrames = ["assets/1cat.png", "assets/3cat.png"];
 
-//     const feedFrames = ["assets/cat7.png", "assets/eat.png"];
+    const feedFrames = ["assets/cat7.png", "assets/eat.png"];
 
-//     const petFrames = ["assets/heart1.png", "assets/heart.png"];
+    const petFrames = ["assets/heart1.png", "assets/heart.png"];
 
-//     const playFrames = ["assets/cat11.png", "assets/cat10.png"];
+    const playFrames = ["assets/cat11.png", "assets/cat10.png"];
 
-//     const sleepFrame = "assets/cat3.png";
+    const sleepFrame = "assets/cat3.png";
 
-//     let walkIndex = 0;
+    let walkIndex = 0;
 
-//     let direction = 1;
+    let direction = 1;
 
-//     let posX = 10;
+    let posX = 10;
 
-//     let walkInterval;
+    let walkInterval;
 
-//     let animTimeout;
+    let animTimeout;
 
-//     let isAnimating = false;
+    let isAnimating = false;
 
-//     // Cat Walking Animation
-//     function startWalking() {
+    // Cat Walking Animation
+    function startWalking() {
 
-//         clearInterval(walkInterval);
+        clearInterval(walkInterval);
 
-//         const catFrame = document.getElementById("cat-frame");
+        const catFrame = document.getElementById("cat-frame");
 
-//         walkInterval = setInterval(() => {
+        walkInterval = setInterval(() => {
 
-//             cat.src = walkFrames[walkIndex];
+            cat.src = walkFrames[walkIndex];
 
-//             walkIndex = (walkIndex + 1) % walkFrames.length;
+            walkIndex = (walkIndex + 1) % walkFrames.length;
 
-//             posX += direction * 2;
+            posX += direction * 2;
 
-//             catFrame.style.left = posX + "%";
+            catFrame.style.left = posX + "%";
 
-//             if (posX > 75) direction = -1;
+            if (posX > 75) direction = -1;
 
-//             if (posX < 5) direction = 1;
+            if (posX < 5) direction = 1;
 
-//             cat.style.transform = direction === 1 ? "scaleX(1)" : "scaleX(-1)";
+            cat.style.transform = direction === 1 ? "scaleX(1)" : "scaleX(-1)";
 
-//         }, 500);
+        }, 500);
 
-//     }
+    }
 
-//     // Temporary Animation
-//     function playTempAnim(frames, duration) {
+    // Temporary Animation
+    function playTempAnim(frames, duration) {
 
-//         if (isAnimating) return;
+        if (isAnimating) return;
 
-//         isAnimating = true;
+        isAnimating = true;
 
-//         feedBtn.disabled = true;
+        feedBtn.disabled = true;
 
-//         petBtn.disabled = true;
+        petBtn.disabled = true;
 
-//         playBtn.disabled = true;
+        playBtn.disabled = true;
 
-//         clearInterval(walkInterval);
+        clearInterval(walkInterval);
 
-//         clearTimeout(animTimeout);
+        clearTimeout(animTimeout);
 
-//         let i = 0;
+        let i = 0;
 
-//         const tempInterval = setInterval(() => {
+        const tempInterval = setInterval(() => {
 
-//             cat.src = frames[i % frames.length];
+            cat.src = frames[i % frames.length];
 
-//             i++;
+            i++;
 
-//         }, 400);
+        }, 400);
 
-//         animTimeout = setTimeout(() => {
+        animTimeout = setTimeout(() => {
 
-//             clearInterval(tempInterval);
+            clearInterval(tempInterval);
 
-//             isAnimating = false;
+            isAnimating = false;
 
-//             feedBtn.disabled = false;
+            feedBtn.disabled = false;
 
-//             petBtn.disabled = false;
+            petBtn.disabled = false;
 
-//             playBtn.disabled = false;
+            playBtn.disabled = false;
 
-//             startWalking();
+            startWalking();
 
-//         }, duration);
+        }, duration);
 
-//     }
+    }
 
-//     // Sleep Animation
-//     function sleepCat(duration = 5000) {
+    // Sleep Animation
+    function sleepCat(duration = 5000) {
 
-//         if (isAnimating) return;
+        if (isAnimating) return;
 
-//         isAnimating = true;
+        isAnimating = true;
 
-//         feedBtn.disabled = true;
+        feedBtn.disabled = true;
 
-//         petBtn.disabled = true;
+        petBtn.disabled = true;
 
-//         playBtn.disabled = true;
+        playBtn.disabled = true;
 
-//         clearInterval(walkInterval);
+        clearInterval(walkInterval);
 
-//         cat.src = sleepFrame;
+        cat.src = sleepFrame;
 
-//         animTimeout = setTimeout(() => {
+        animTimeout = setTimeout(() => {
 
-//             isAnimating = false;
+            isAnimating = false;
 
-//             feedBtn.disabled = false;
+            feedBtn.disabled = false;
 
-//             petBtn.disabled = false;
+            petBtn.disabled = false;
 
-//             playBtn.disabled = false;
+            playBtn.disabled = false;
 
-//             startWalking();
+            startWalking();
 
-//         }, duration);
+        }, duration);
 
-//     }
+    }
 
-//     // Start Walking when page loads
-//     startWalking();
+    // Start Walking when page loads
+    startWalking();
 
-// });
+});

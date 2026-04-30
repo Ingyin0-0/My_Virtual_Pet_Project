@@ -1,355 +1,355 @@
-// document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-//     let bgMusic;
+    let bgMusic;
 
-//     if (window.location.pathname.includes("index.html")) {
+    if (window.location.pathname.includes("index.html")) {
 
-//         bgMusic = new Audio("assets/music.mp3");
+        bgMusic = new Audio("assets/music.mp3");
 
-//     } else if (window.location.pathname.includes("story.html")) {
+    } else if (window.location.pathname.includes("story.html")) {
 
-//         bgMusic = new Audio("assets/rainy.mp3");
+        bgMusic = new Audio("assets/rainy.mp3");
 
-//     } else if (window.location.pathname.includes("play.html")) {
+    } else if (window.location.pathname.includes("play.html")) {
 
-//         bgMusic = new Audio("assets/home.mp3");
+        bgMusic = new Audio("assets/home.mp3");
 
-//     }
+    }
 
-//     if (!bgMusic) return;
+    if (!bgMusic) return;
 
-//     bgMusic.volume = 0.15;
+    bgMusic.volume = 0.15;
 
-//     bgMusic.loop = true;
+    bgMusic.loop = true;
 
-//     bgMusic.preload = "auto";
+    bgMusic.preload = "auto";
 
-//     let musicOn = false;
+    let musicOn = false;
 
-//     function startMusicOnce() {
+    function startMusicOnce() {
 
-//         if (!musicOn) {
+        if (!musicOn) {
 
-//             bgMusic.play().catch(() => { });
+            bgMusic.play().catch(() => { });
 
-//             musicOn = true;
+            musicOn = true;
 
-//             const musicToggle = document.getElementById("musicToggle");
+            const musicToggle = document.getElementById("musicToggle");
 
-//             if (musicToggle) {
+            if (musicToggle) {
 
-//                 musicToggle.innerHTML = `<i class="fa-solid fa-music"></i> Music: ON`;
+                musicToggle.innerHTML = `<i class="fa-solid fa-music"></i> Music: ON`;
 
-//             }
+            }
 
-//         } document.removeEventListener("click", startMusicOnce);
+        } document.removeEventListener("click", startMusicOnce);
 
-//     }
+    }
 
-//     document.addEventListener("click", startMusicOnce);
+    document.addEventListener("click", startMusicOnce);
 
-//     // Music toggle
-//     const musicToggle = document.getElementById("musicToggle");
+    // Music toggle
+    const musicToggle = document.getElementById("musicToggle");
 
-//     if (musicToggle) {
+    if (musicToggle) {
 
-//         musicToggle.addEventListener("click", (e) => {
+        musicToggle.addEventListener("click", (e) => {
 
-//             e.stopPropagation();
+            e.stopPropagation();
 
-//             if (musicOn) {
+            if (musicOn) {
 
-//                 bgMusic.pause();
+                bgMusic.pause();
 
-//                 musicOn = false;
+                musicOn = false;
 
-//             } else {
+            } else {
 
-//                 bgMusic.play().catch(() => { });
+                bgMusic.play().catch(() => { });
 
-//                 musicOn = true;
+                musicOn = true;
 
-//             }
+            }
 
-//             musicToggle.innerHTML =
+            musicToggle.innerHTML =
 
-//                 `<i class="fa-solid fa-music"></i> Music: ${musicOn ? "ON" : "OFF"}`;
+                `<i class="fa-solid fa-music"></i> Music: ${musicOn ? "ON" : "OFF"}`;
 
-//         });
+        });
 
-//     }
+    }
 
-//     const meowSfx = new Audio("assets/meow.wav");
+    const meowSfx = new Audio("assets/meow.wav");
 
-//     meowSfx.volume = 0.2;
+    meowSfx.volume = 0.2;
 
-//     meowSfx.preload = "auto";
+    meowSfx.preload = "auto";
 
-//     let sfxOn = true;
+    let sfxOn = true;
 
-//     function playMeow() {
+    function playMeow() {
 
-//         if (sfxOn) {
+        if (sfxOn) {
 
-//             meowSfx.currentTime = 0;
+            meowSfx.currentTime = 0;
 
-//             meowSfx.play().catch(() => { });
+            meowSfx.play().catch(() => { });
 
-//         }
+        }
 
-//     }
+    }
 
-//     // Start Button
-//     const startBtn = document.getElementById("startBtn");
+    // Start Button
+    const startBtn = document.getElementById("startBtn");
 
-//     if (startBtn) {
+    if (startBtn) {
 
-//         startBtn.addEventListener("click", function (e) {
+        startBtn.addEventListener("click", function (e) {
 
-//             e.stopPropagation();
+            e.stopPropagation();
 
-//             playMeow();
+            playMeow();
 
-//             setTimeout(() => {
+            setTimeout(() => {
 
-//                 const savedGame = localStorage.getItem("noirGame");
+                const savedGame = localStorage.getItem("noirGame");
 
-//                 if (savedGame) {
+                if (savedGame) {
 
-//                     showConfirmModal(
+                    showConfirmModal(
 
-//                         "Do you want to start over and lose your saved progress?",
+                        "Do you want to start over and lose your saved progress?",
 
-//                         "This will delete your save.",
+                        "This will delete your save.",
 
-//                         () => {
+                        () => {
 
-//                             localStorage.removeItem("noirGame");
+                            localStorage.removeItem("noirGame");
 
-//                             window.location.href = "story.html";
+                            window.location.href = "story.html";
 
-//                         }
+                        }
 
-//                     );
+                    );
 
-//                 } else {
+                } else {
 
-//                     window.location.href = "story.html";
+                    window.location.href = "story.html";
 
-//                 }
+                }
 
-//             }, 800);
+            }, 800);
 
-//         });
+        });
 
-//     }
+    }
 
-//     // Continue Button 
-//     const continueBtn = document.getElementById("continueBtn");
+    // Continue Button 
+    const continueBtn = document.getElementById("continueBtn");
 
-//     if (continueBtn) {
+    if (continueBtn) {
 
-//         const savedGame = localStorage.getItem("noirGame");
+        const savedGame = localStorage.getItem("noirGame");
 
-//         if (!localStorage.getItem("noirGame")) {
+        if (!localStorage.getItem("noirGame")) {
 
-//             continueBtn.disabled = true;
+            continueBtn.disabled = true;
 
-//             continueBtn.title = "No saved game found.";
+            continueBtn.title = "No saved game found.";
 
-//         } else {
+        } else {
 
-//             continueBtn.disabled = false;
+            continueBtn.disabled = false;
 
-//             continueBtn.title = "";
+            continueBtn.title = "";
 
-//         }
+        }
 
-//         continueBtn.addEventListener("click", function (e) {
+        continueBtn.addEventListener("click", function (e) {
 
-//             e.stopPropagation();
+            e.stopPropagation();
 
-//             playMeow();
+            playMeow();
 
-//             const lastestSave = localStorage.getItem("noirGame");
+            const lastestSave = localStorage.getItem("noirGame");
 
-//             if (!lastestSave) {
+            if (!lastestSave) {
 
-//                 showModal("No saved game found.");
+                showModal("No saved game found.");
 
-//                 return;
+                return;
 
-//             }
+            }
 
-//             setTimeout(() => {
+            setTimeout(() => {
 
-//                 window.location.href = "play.html";
+                window.location.href = "play.html";
 
-//             }, 800);
+            }, 800);
 
-//         });
+        });
 
-//     }
+    }
 
-//     // SFX toggle
-//     const sfxToggle = document.getElementById("sfxToggle");
+    // SFX toggle
+    const sfxToggle = document.getElementById("sfxToggle");
 
-//     if (sfxToggle) {
+    if (sfxToggle) {
 
-//         sfxToggle.addEventListener("click", () => {
+        sfxToggle.addEventListener("click", () => {
 
-//             sfxOn = !sfxOn;
+            sfxOn = !sfxOn;
 
-//             sfxToggle.innerHTML =
+            sfxToggle.innerHTML =
 
-//                 `<i class="fa-solid fa-volume-high"></i> SFX: ${sfxOn ? "ON" : "OFF"}`;
+                `<i class="fa-solid fa-volume-high"></i> SFX: ${sfxOn ? "ON" : "OFF"}`;
 
-//         });
+        });
 
-//     }
+    }
 
-//     // Meow for buttons 
-//     document.addEventListener("click", function (e) {
+    // Meow for buttons 
+    document.addEventListener("click", function (e) {
 
-//         if (e.target.closest("#feedBtn, #petBtn, #playBtn, #choiceBtn")) {
+        if (e.target.closest("#feedBtn, #petBtn, #playBtn, #choiceBtn")) {
 
-//             playMeow();
+            playMeow();
 
-//         }
+        }
 
-//     });
+    });
 
-//     // Dropdown
-//     const settingBtn = document.getElementById("settingBtn");
+    // Dropdown
+    const settingBtn = document.getElementById("settingBtn");
 
-//     const dropdown = document.querySelector(".dropdown-content");
+    const dropdown = document.querySelector(".dropdown-content");
 
-//     if (settingBtn && dropdown) {
+    if (settingBtn && dropdown) {
 
-//         settingBtn.addEventListener("click", function (event) {
+        settingBtn.addEventListener("click", function (event) {
 
-//             event.stopPropagation();
+            event.stopPropagation();
 
-//             dropdown.classList.toggle("show");
+            dropdown.classList.toggle("show");
 
-//         });
+        });
 
-//         document.addEventListener("click", function () {
+        document.addEventListener("click", function () {
 
-//             dropdown.classList.remove("show");
+            dropdown.classList.remove("show");
 
-//         });
+        });
 
-//     }
+    }
 
-//     // Modal Overlay 
-//     const modalOverlay = document.getElementById("modalOverlay");
+    // Modal Overlay 
+    const modalOverlay = document.getElementById("modalOverlay");
 
-//     const modalTitle = document.getElementById("modalTitle");
+    const modalTitle = document.getElementById("modalTitle");
 
-//     const modalText = document.getElementById("modalText");
+    const modalText = document.getElementById("modalText");
 
-//     const modalOk = document.getElementById("modalOk");
+    const modalOk = document.getElementById("modalOk");
 
-//     const modalCancel = document.getElementById("modalCancel");
+    const modalCancel = document.getElementById("modalCancel");
 
-//     const modalConfirm = document.getElementById("modalConfirm");
+    const modalConfirm = document.getElementById("modalConfirm");
 
-//     let confirmAction = null;
+    let confirmAction = null;
 
-//     function showModal(title, text) {
+    function showModal(title, text) {
 
-//         modalTitle.textContent = title;
+        modalTitle.textContent = title;
 
-//         modalText.textContent = text || "";
+        modalText.textContent = text || "";
 
-//         modalOk.classList.remove("hidden");
+        modalOk.classList.remove("hidden");
 
-//         modalCancel.classList.add("hidden");
+        modalCancel.classList.add("hidden");
 
-//         modalConfirm.classList.add("hidden");
+        modalConfirm.classList.add("hidden");
 
-//         modalOverlay.classList.add("show");
+        modalOverlay.classList.add("show");
 
-//         modalOverlay.classList.remove("hidden");
+        modalOverlay.classList.remove("hidden");
 
-//     }
+    }
 
-//     function showConfirmModal(title, text, onConfirm) {
+    function showConfirmModal(title, text, onConfirm) {
 
-//         modalTitle.textContent = title;
+        modalTitle.textContent = title;
 
-//         modalText.textContent = text;
+        modalText.textContent = text;
 
-//         confirmAction = onConfirm;
+        confirmAction = onConfirm;
 
-//         modalOk.classList.add("hidden");
+        modalOk.classList.add("hidden");
 
-//         modalCancel.classList.remove("hidden");
+        modalCancel.classList.remove("hidden");
 
-//         modalConfirm.classList.remove("hidden");
+        modalConfirm.classList.remove("hidden");
 
-//         modalOverlay.classList.add("show");
+        modalOverlay.classList.add("show");
 
-//         modalOverlay.classList.remove("hidden");
+        modalOverlay.classList.remove("hidden");
 
-//     }
+    }
 
-//     function closeModal() {
+    function closeModal() {
 
-//         modalOverlay.classList.remove("show");
+        modalOverlay.classList.remove("show");
 
-//         setTimeout(() => modalOverlay.classList.add("hidden"), 200);
+        setTimeout(() => modalOverlay.classList.add("hidden"), 200);
 
-//     }
+    }
 
-//     if (modalOk) modalOk.addEventListener("click", closeModal);
+    if (modalOk) modalOk.addEventListener("click", closeModal);
 
-//     if (modalCancel) modalCancel.addEventListener("click", closeModal);
+    if (modalCancel) modalCancel.addEventListener("click", closeModal);
 
-//     if (modalConfirm) {
+    if (modalConfirm) {
 
-//         modalConfirm.addEventListener("click", () => {
+        modalConfirm.addEventListener("click", () => {
 
-//             closeModal();
+            closeModal();
 
-//             if (confirmAction) confirmAction();
+            if (confirmAction) confirmAction();
 
-//         });
+        });
 
-//     }
+    }
 
-//     if (modalOverlay) {
+    if (modalOverlay) {
 
-//         modalOverlay.addEventListener("click", (e) => {
+        modalOverlay.addEventListener("click", (e) => {
 
-//             if (e.target === modalOverlay) closeModal();
+            if (e.target === modalOverlay) closeModal();
 
-//         });
+        });
 
-//     }
+    }
 
-//     // About
-//     const aboutBtn = document.getElementById("aboutBtn");
+    // About
+    const aboutBtn = document.getElementById("aboutBtn");
 
-//     if (aboutBtn) {
+    if (aboutBtn) {
 
-//         aboutBtn.addEventListener("click", () => {
+        aboutBtn.addEventListener("click", () => {
 
-//             showModal(`About Noir 🐈‍⬛  
+            showModal(`About Noir 🐈‍⬛  
 
-//                 Noir is a cozy virtual pet game where you take care of a mysterious little cat.  
+                Noir is a cozy virtual pet game where you take care of a mysterious little cat.  
 
-//                 Feed Noir when hungry, pet to keep happiness high, and play when energy allows.  
+                Feed Noir when hungry, pet to keep happiness high, and play when energy allows.  
 
-//                 As time passes, Noir’s needs slowly change, so check in often to keep your cat healthy and happy.  
+                As time passes, Noir’s needs slowly change, so check in often to keep your cat healthy and happy.  
 
-//                 The game features background music, sound effects, animations, and a save system so players can continue anytime.  
+                The game features background music, sound effects, animations, and a save system so players can continue anytime.  
 
-//                 This project was made as a creative interactive game to practice web development and design. Hope you guys enjoy!`);
+                This project was made as a creative interactive game to practice web development and design. Hope you guys enjoy!`);
 
-//         });
+        });
 
-//     }
+    }
 
-// });
+});

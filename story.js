@@ -1,391 +1,391 @@
-// document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-//     let bgMusic;
+    let bgMusic;
 
-//     if (window.location.pathname.includes("index.html")) {
+    if (window.location.pathname.includes("index.html")) {
 
-//         bgMusic = new Audio("assets/music.mp3");
+        bgMusic = new Audio("assets/music.mp3");
 
-//     } else if (window.location.pathname.includes("story.html")) {
+    } else if (window.location.pathname.includes("story.html")) {
 
-//         bgMusic = new Audio("assets/rainy.mp3");
+        bgMusic = new Audio("assets/rainy.mp3");
 
-//     } else if (window.location.pathname.includes("play.html")) {
+    } else if (window.location.pathname.includes("play.html")) {
 
-//         bgMusic = new Audio("assets/home.mp3");
+        bgMusic = new Audio("assets/home.mp3");
 
-//     }
+    }
 
-//     if (!bgMusic) return;
+    if (!bgMusic) return;
 
-//     bgMusic.volume = 0.15;
+    bgMusic.volume = 0.15;
 
-//     bgMusic.loop = true;
+    bgMusic.loop = true;
 
-//     bgMusic.preload = "auto";
+    bgMusic.preload = "auto";
 
-//     let musicOn = false;
+    let musicOn = false;
 
-//     function startMusicOnce() {
+    function startMusicOnce() {
 
-//         if (!musicOn) {
+        if (!musicOn) {
 
-//             bgMusic.play().catch(() => { });
+            bgMusic.play().catch(() => { });
 
-//             musicOn = true;
+            musicOn = true;
 
-//             const musicToggle = document.getElementById("musicToggle");
+            const musicToggle = document.getElementById("musicToggle");
 
-//             if (musicToggle) {
+            if (musicToggle) {
 
-//                 musicToggle.innerHTML = `<i class="fa-solid fa-music"></i> Music: ON`;
+                musicToggle.innerHTML = `<i class="fa-solid fa-music"></i> Music: ON`;
 
-//             }
+            }
 
-//         } document.removeEventListener("click", startMusicOnce);
+        } document.removeEventListener("click", startMusicOnce);
 
-//     }
+    }
 
-//     document.addEventListener("click", startMusicOnce);
+    document.addEventListener("click", startMusicOnce);
 
-//     // Music toggle
-//     const musicToggle = document.getElementById("musicToggle");
+    // Music toggle
+    const musicToggle = document.getElementById("musicToggle");
 
-//     if (musicToggle) {
+    if (musicToggle) {
 
-//         musicToggle.addEventListener("click", (e) => {
+        musicToggle.addEventListener("click", (e) => {
 
-//             e.stopPropagation();
+            e.stopPropagation();
 
-//             if (musicOn) {
+            if (musicOn) {
 
-//                 bgMusic.pause();
+                bgMusic.pause();
 
-//                 musicOn = false;
+                musicOn = false;
 
-//             } else {
+            } else {
 
-//                 bgMusic.play().catch(() => { });
+                bgMusic.play().catch(() => { });
 
-//                 musicOn = true;
+                musicOn = true;
 
-//             }
+            }
 
-//             musicToggle.innerHTML =
+            musicToggle.innerHTML =
 
-//                 `<i class="fa-solid fa-music"></i> Music: ${musicOn ? "ON" : "OFF"}`;
+                `<i class="fa-solid fa-music"></i> Music: ${musicOn ? "ON" : "OFF"}`;
 
-//         });
+        });
 
-//     }
+    }
 
-//     const meowSfx = new Audio("assets/meow.wav");
+    const meowSfx = new Audio("assets/meow.wav");
 
-//     meowSfx.volume = 0.2;
+    meowSfx.volume = 0.2;
 
-//     meowSfx.preload = "auto";
+    meowSfx.preload = "auto";
 
-//     let sfxOn = true;
+    let sfxOn = true;
 
-//     function playMeow() {
+    function playMeow() {
 
-//         if (sfxOn) {
+        if (sfxOn) {
 
-//             meowSfx.currentTime = 0;
+            meowSfx.currentTime = 0;
 
-//             meowSfx.play().catch(() => { });
+            meowSfx.play().catch(() => { });
 
-//         }
+        }
 
-//     }
+    }
 
-//     // SFX toggle
-//     const sfxToggle = document.getElementById("sfxToggle");
+    // SFX toggle
+    const sfxToggle = document.getElementById("sfxToggle");
 
-//     if (sfxToggle) {
+    if (sfxToggle) {
 
-//         sfxToggle.addEventListener("click", () => {
+        sfxToggle.addEventListener("click", () => {
 
-//             sfxOn = !sfxOn;
+            sfxOn = !sfxOn;
 
-//             sfxToggle.innerHTML =
+            sfxToggle.innerHTML =
 
-//                 `<i class="fa-solid fa-volume-high"></i> SFX: ${sfxOn ? "ON" : "OFF"}`;
+                `<i class="fa-solid fa-volume-high"></i> SFX: ${sfxOn ? "ON" : "OFF"}`;
 
-//         });
+        });
 
-//     }
+    }
 
-//     // Meow for buttons 
-//     document.addEventListener("click", function (e) {
+    // Meow for buttons 
+    document.addEventListener("click", function (e) {
 
-//         if (e.target.closest("#feedBtn, #petBtn, #playBtn, #choiceBtn")) {
+        if (e.target.closest("#feedBtn, #petBtn, #playBtn, #choiceBtn")) {
 
-//             playMeow();
+            playMeow();
 
-//         }
+        }
 
-//     });
+    });
 
-//     // Dropdown
-//     const settingBtn = document.getElementById("settingBtn");
+    // Dropdown
+    const settingBtn = document.getElementById("settingBtn");
 
-//     const dropdown = document.querySelector(".dropdown-content");
+    const dropdown = document.querySelector(".dropdown-content");
 
-//     if (settingBtn && dropdown) {
+    if (settingBtn && dropdown) {
 
-//         settingBtn.addEventListener("click", function (event) {
+        settingBtn.addEventListener("click", function (event) {
 
-//             event.stopPropagation();
+            event.stopPropagation();
 
-//             dropdown.classList.toggle("show");
+            dropdown.classList.toggle("show");
 
-//         });
+        });
 
-//         document.addEventListener("click", function () {
+        document.addEventListener("click", function () {
 
-//             dropdown.classList.remove("show");
+            dropdown.classList.remove("show");
 
-//         });
+        });
 
-//     }
+    }
 
-//     // Story Lines
-//     const storyLines = [
+    // Story Lines
+    const storyLines = [
 
-//         `“Why is the rain so heavy today…?”`,
+        `“Why is the rain so heavy today…?”`,
 
-//         `The sky rumbles above you as cold droplets soak through your clothes.`,
+        `The sky rumbles above you as cold droplets soak through your clothes.`,
 
-//         `The streets are nearly empty, the sound of rain echoing against stone and pavement.`,
+        `The streets are nearly empty, the sound of rain echoing against stone and pavement.`,
 
-//         `You tighten your jacket and continue walking home.`,
+        `You tighten your jacket and continue walking home.`,
 
-//         `Then—`,
+        `Then—`,
 
-//         `Something catches your eye.`,
+        `Something catches your eye.`,
 
-//         `Near the side of the road, beside the old stone steps, sits a small cardboard box.`,
+        `Near the side of the road, beside the old stone steps, sits a small cardboard box.`,
 
-//         `The rain pours over it mercilessly.`,
+        `The rain pours over it mercilessly.`,
 
-//         `On the side of the box, written in fading ink, is a single name:
+        `On the side of the box, written in fading ink, is a single name:
 
-// "Noir."`,
+"Noir."`,
 
-//         `You pause.`,
+        `You pause.`,
 
-//         `Did it just move?`,
+        `Did it just move?`,
 
-//         `You step closer.`,
+        `You step closer.`,
 
-//         `Two tiny black ears peek over the edge of the box.`,
+        `Two tiny black ears peek over the edge of the box.`,
 
-//         `And then—`,
+        `And then—`,
 
-//         `A pair of round, golden eyes look up at you.`,
+        `A pair of round, golden eyes look up at you.`,
 
-//         `A small black cat, shivering quietly in the rain.`,
+        `A small black cat, shivering quietly in the rain.`,
 
-//         `It doesn’t run.`,
+        `It doesn’t run.`,
 
-//         `It doesn’t hiss.`,
+        `It doesn’t hiss.`,
 
-//         `It just… looks at you and meows.`,
+        `It just… looks at you and meows.`,
 
-//         `Waiting.`,
+        `Waiting.`,
 
-//         `Your chest tightens.`,
+        `Your chest tightens.`,
 
-//         `You can’t just leave it here.`,
+        `You can’t just leave it here.`,
 
-//         `Not in this weather.`,
+        `Not in this weather.`,
 
-//         `Not like this.`,
+        `Not like this.`,
 
-//         `The rain grows heavier.`,
+        `The rain grows heavier.`,
 
-//         `The little cat blinks slowly.`,
+        `The little cat blinks slowly.`,
 
-//         `As if asking you something.`,
+        `As if asking you something.`,
 
-//         `You hesitate…`,
+        `You hesitate…`,
 
-//         `But your heart has already decided.`
+        `But your heart has already decided.`
 
-//     ];
+    ];
 
-//     let currentLine = 0;
+    let currentLine = 0;
 
-//     let isTyping = false;
+    let isTyping = false;
 
-//     let gameStarted = false;
+    let gameStarted = false;
 
-//     const storyText = document.getElementById("storyText");
+    const storyText = document.getElementById("storyText");
 
-//     if (storyText) {
+    if (storyText) {
 
-//         const nextBtn = document.getElementById("nextBtn");
+        const nextBtn = document.getElementById("nextBtn");
 
-//         const choiceBtn = document.getElementById("choiceBtn");
+        const choiceBtn = document.getElementById("choiceBtn");
 
-//         const container = document.querySelector(".container");
+        const container = document.querySelector(".container");
 
-//         // Typing Effect
-//         function typeWriter(text, speed = 30) {
+        // Typing Effect
+        function typeWriter(text, speed = 30) {
 
-//             isTyping = true;
+            isTyping = true;
 
-//             storyText.innerHTML = "";
+            storyText.innerHTML = "";
 
-//             let i = 0;
+            let i = 0;
 
-//             function typing() {
+            function typing() {
 
-//                 if (i < text.length) {
+                if (i < text.length) {
 
-//                     storyText.innerHTML += text.charAt(i);
+                    storyText.innerHTML += text.charAt(i);
 
-//                     i++;
+                    i++;
 
-//                     setTimeout(typing, speed);
+                    setTimeout(typing, speed);
 
-//                 } else {
+                } else {
 
-//                     isTyping = false;
+                    isTyping = false;
 
-//                 }
+                }
 
-//             }
+            }
 
-//             typing();
+            typing();
 
-//         }
+        }
 
-//         function showLine() {
+        function showLine() {
 
-//             typeWriter(storyLines[currentLine]);
+            typeWriter(storyLines[currentLine]);
 
-//         }
+        }
 
-//         // Music plays when game started
-//         document.addEventListener("click", () => {
+        // Music plays when game started
+        document.addEventListener("click", () => {
 
-//             if (!gameStarted) {
+            if (!gameStarted) {
 
-//                 container.classList.remove("hidden");
+                container.classList.remove("hidden");
 
-//                 gameStarted = true;
+                gameStarted = true;
 
-//                 bgMusic.play().catch(() => { });
+                bgMusic.play().catch(() => { });
 
-//                 showLine();
+                showLine();
 
-//             }
+            }
 
-//         });
+        });
 
-//         // Next Button
-//         nextBtn.addEventListener("click", (e) => {
+        // Next Button
+        nextBtn.addEventListener("click", (e) => {
 
-//             e.stopPropagation();
+            e.stopPropagation();
 
-//             if (isTyping) return;
+            if (isTyping) return;
 
-//             currentLine++;
+            currentLine++;
 
-//             if (currentLine < storyLines.length) {
+            if (currentLine < storyLines.length) {
 
-//                 showLine();
+                showLine();
 
-//             } else {
+            } else {
 
-//                 nextBtn.style.display = "none";
+                nextBtn.style.display = "none";
 
-//                 choiceBtn.style.display = "block";
+                choiceBtn.style.display = "block";
 
-//             }
+            }
 
-//         });
+        });
 
-//         // Choice
-//         choiceBtn.addEventListener("click", () => {
+        // Choice
+        choiceBtn.addEventListener("click", () => {
 
-//             setTimeout(() => {
+            setTimeout(() => {
 
-//                 window.location.href = "play.html";
+                window.location.href = "play.html";
 
-//             }, 800);
+            }, 800);
 
-//         });
+        });
 
-//         // Modal Overlay 
-//         const modalOverlay = document.getElementById("modalOverlay");
+        // Modal Overlay 
+        const modalOverlay = document.getElementById("modalOverlay");
 
-//         const modalTitle = document.getElementById("modalTitle");
+        const modalTitle = document.getElementById("modalTitle");
 
-//         const modalText = document.getElementById("modalText");
+        const modalText = document.getElementById("modalText");
 
-//         const modalOk = document.getElementById("modalOk");
+        const modalOk = document.getElementById("modalOk");
 
-//         function showModal(title, text) {
+        function showModal(title, text) {
 
-//             if (!modalOverlay) return;
+            if (!modalOverlay) return;
 
-//             modalTitle.textContent = title;
+            modalTitle.textContent = title;
 
-//             modalText.textContent = text;
+            modalText.textContent = text;
 
-//             modalOverlay.classList.add("show");
+            modalOverlay.classList.add("show");
 
-//             modalOverlay.classList.remove("hidden");
+            modalOverlay.classList.remove("hidden");
 
-//         }
+        }
 
-//         function closeModal() {
+        function closeModal() {
 
-//             modalOverlay.classList.remove("show");
+            modalOverlay.classList.remove("show");
 
-//             setTimeout(() => {
+            setTimeout(() => {
 
-//                 modalOverlay.classList.add("hidden");
+                modalOverlay.classList.add("hidden");
 
-//             }, 250);
+            }, 250);
 
-//         }
+        }
 
-//         modalOk.addEventListener("click", closeModal);
+        modalOk.addEventListener("click", closeModal);
 
-//         // close when clicking outside the box 
-//         modalOverlay.addEventListener("click", (e) => {
+        // close when clicking outside the box 
+        modalOverlay.addEventListener("click", (e) => {
 
-//             if (e.target === modalOverlay) closeModal();
+            if (e.target === modalOverlay) closeModal();
 
-//         });
+        });
 
-//         // About
-//         const aboutBtn = document.getElementById("aboutBtn");
+        // About
+        const aboutBtn = document.getElementById("aboutBtn");
 
-//         if (aboutBtn) {
+        if (aboutBtn) {
 
-//             aboutBtn.addEventListener("click", () => {
+            aboutBtn.addEventListener("click", () => {
 
-//                 showModal(`About Noir 🐈‍⬛,  
+                showModal(`About Noir 🐈‍⬛,  
 
-//                 Noir is a cozy virtual pet game where you take care of a mysterious little cat.  
+                Noir is a cozy virtual pet game where you take care of a mysterious little cat.  
 
-//                 Feed Noir when hungry, pet to keep happiness high, and play when energy allows.  
+                Feed Noir when hungry, pet to keep happiness high, and play when energy allows.  
 
-//                 As time passes, Noir’s needs slowly change, so check in often to keep your cat healthy and happy.  
+                As time passes, Noir’s needs slowly change, so check in often to keep your cat healthy and happy.  
 
-//                 The game features background music, sound effects, animations, and a save system so players can continue anytime.  
+                The game features background music, sound effects, animations, and a save system so players can continue anytime.  
 
-//                 This project was made as a creative interactive game to practice web development and design. Hope you guys enjoy!`);
+                This project was made as a creative interactive game to practice web development and design. Hope you guys enjoy!`);
 
-//             });
+            });
 
-//         }
+        }
 
-//     };
+    };
 
-// });
+});
